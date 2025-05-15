@@ -5,12 +5,12 @@
 #include <type_traits>
 #include <utility>
 
-namespace cpp_utils {
 #define SAME_TYPE(a, b) static_assert(std::is_same_v<a, b>)
-
 #define CURRENT(method_name) std::source_location::current().method_name()
 #define CURRENT_FUNCTION_NAME CURRENT(function_name)
 #define PRINT_CURRENT_FUNCTION_NAME std::println("{}", CURRENT_FUNCTION_NAME)
+
+namespace cpp_utils {
 
 template <class T>
 inline const T* object_end_address(const T* obj_ptr) {
