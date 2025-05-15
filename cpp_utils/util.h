@@ -2,9 +2,11 @@
 
 #include <print>
 #include <source_location>
+#include <type_traits>
 #include <utility>
 
 namespace cpp_utils {
+#define SAME_TYPE(a, b) static_assert(std::is_same_v<a, b>)
 
 #define CURRENT(method_name) std::source_location::current().method_name()
 #define CURRENT_FUNCTION_NAME CURRENT(function_name)
