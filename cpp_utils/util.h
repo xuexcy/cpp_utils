@@ -16,7 +16,7 @@
 namespace cpp_utils {
 
 template <typename T>
-constexpr auto type_name() {
+consteval auto f_type_name() {
   std::string_view name = CURRENT_FUNCTION_NAME;
   std::string_view prefix, suffix;
 #ifdef __clang__
@@ -36,6 +36,8 @@ constexpr auto type_name() {
   name.remove_suffix(suffix.size());
   return name;
 }
+template <typename T>
+constexpr auto type_name = f_type_name<T>();
 
 template <class T>
 inline const T* object_end_address(const T* obj_ptr) {
