@@ -21,15 +21,15 @@ consteval auto f_type_name() {
   std::string_view prefix, suffix;
 #ifdef __clang__
 //  name = __PRETTY_FUNCTION__;
-  prefix = "auto cpp_utils::type_name() [T = ";
+  prefix = "auto cpp_utils::f_type_name() [T = ";
   suffix = "]";
 #elif defined(__GNUC__)
  // name = __PRETTY_FUNCTION__;
-  prefix = "constexpr auto cpp_utils::type_name() [with T = ";
+  prefix = "constexpr auto cpp_utils::f_type_name() [with T = ";
   suffix = "]";
 #elif defined(_MSC_VER)
   //name = __FUNCSIG__;
-  prefix = "auto __cdecl cpp_utils::type_name<";
+  prefix = "auto __cdecl cpp_utils::f_type_name<";
   suffix = ">(void)";
 #endif
   name.remove_prefix(prefix.size());
